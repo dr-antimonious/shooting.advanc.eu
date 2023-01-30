@@ -1,0 +1,56 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center parallax">
+    <div class="vh-100" id="item1">
+        <h1 class="display-4 text-white">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+    <div class="vh-100" id="spaceitem"></div>
+    <div class="vh-100" id="item2">
+        <h1 class="display-4 text-white">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+    @*<div class="vh-100" id="item3">
+        <h1 class="display-4 text-white">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+</div>
+
+<style>
+    .parallax {
+        background: url('/img/326551671_1195694677754775_7874095249251494241_n.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        display: grid;
+        gap: 0px;
+    }
+
+    #item1 {
+        backdrop-filter: blur(100px) brightness(50%);
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    #item2 {
+        backdrop-filter: blur(100px) brightness(50%);
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+
+    #spaceitem {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+</style>
