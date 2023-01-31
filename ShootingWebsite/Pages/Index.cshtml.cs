@@ -12,9 +12,14 @@ namespace ShootingWebsite.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public RedirectResult? OnGet()
         {
+            if (HttpContext.Request.Cookies.ContainsKey("userId"))
+            {
+                return Redirect("/Error");
+            }
 
+            return null;
         }
     }
 }
