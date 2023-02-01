@@ -14,12 +14,9 @@ namespace ShootingWebsite.Pages
 
         public RedirectResult? OnGet()
         {
-            if (HttpContext.Request.Cookies.ContainsKey("userId"))
-            {
-                return Redirect("/Error");
-            }
-
-            return null;
+            return HttpContext.Request.Cookies.ContainsKey("userId")
+                ? Redirect("/Interface")
+                : null;
         }
     }
 }
