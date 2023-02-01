@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ShootingWebsite.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700" />
 </head>
 <style>
     body::-webkit-scrollbar {
@@ -16,6 +17,24 @@
 <body>
     <div>
         <main role="main">
+            @if (TempData["AlertSuccess"] != null)
+            {
+                <div class="alert alert-success" role="alert">
+                    @Html.Raw(@TempData["AlertSuccess"])
+                </div>
+            }
+            @if (TempData["AlertDanger"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @Html.Raw(@TempData["AlertDanger"])
+                </div>
+            }
+            @if (TempData["AlertWarning"] != null)
+            {
+                <div class="alert alert-warning" role="alert">
+                    @Html.Raw(@TempData["AlertWarning"])
+                </div>
+            }
             @RenderBody()
         </main>
     </div>
@@ -29,7 +48,6 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

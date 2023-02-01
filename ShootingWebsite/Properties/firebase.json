@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "shootingdiary-orwima",
+  "private_key_id": "7cbb8d4189d439a2a10497a99ae32389d78d170c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCFBxna69uSDkcm\nlY4dUmVuVPA+WLiQzyRqY+eyJIjqG6Cyvt/SQ8I/qJIjd9nmBcDDtZm6MTzLihOw\naZpwGpC0S268dqWWkPBJGV4kRNmp6FU5arZUmuCG4XP6HCjO/viPy1/ee6AE0zx/\nKmQvtUTxRpN4JJEJ6L06qt5/VASO/yAfkkwZU+mvp0GD6FuiHXnQND2ZCbSPa/Aj\ntGJl3kmvbz7YP+PtaqOJHyx1EUnt4MORv5X7qhOc7TVXQhATBmBJyTvMKAbTFIoQ\nvT80zy3eOpI0R/RZysJbZhp2xrAs8Q5PkBitfi0x/eiSZdpqab0ncV/bcoo+zn4w\nfnyGT1zhAgMBAAECggEAFck07cqEuiXGd0Y08Q5meCxG8B79kxGpiBb2ghFDrvt5\nVOy3oSrhrCVCUba2I9q7WBHsrDaWG0twsAqLdWKUYkKcTxcrRT5Va9NQvKXd89qN\n4opcc/ytWsmfgc2MzWGqeXo4KCqc6U1i8fySTdHlCZKiYiGy8yl/nBURvU6YNIbN\nXNhgHsIb50VVabkPfcIZEmlUCADckN4totZPG4I0xkfXE2CCP92o0AfDSZ/0eAtb\nPnYEny3E8JcVTSZrKGAPIznViMbG9Q5tsy3RdaeBOmDYVkgFPM3FZO5hYWyQyNaA\n92SGGwQkzaRS9jkLTmJ38ouBpnNP3DbhPDwrgRmWtQKBgQC5YfHpH35L9JN0IwQa\n/2safygVThNNKdeMS0fZulsTMLr8X85zSELGCNF0cTpUXw0vTD0DmBEI+SnMSUyO\nFnA2h0/Gokrv4i4Q35CIIbew1IYO4GCMzWwrM46HaeCm/93Hwq+nt3zUeev0blTm\nWIgmzDHKKYEcr/Ebu8+Jf3Yz1wKBgQC3s6OPSgSu/YW/zjdk8S22oBsyflFWNMkE\nxbOjE//OqDD+0mvqU9LdlIQd7IfjgJE9pYfXUNE1nKGRQ0xL8ZX1x7LZu0GJDSfC\n4RedclUThVm3arKVokn6VoZyi5N68F2scnYTI7L5abDEfv0Yn83UiZTTcraUFv4T\nEx7R4+1eBwKBgCfT4yUynu+ym/tXiopCVcBbkUEChSMO2kBJ7CXa47Y7wfB2pOQf\nojjprBZYPS/jO/Htby5WfVJwNYquNMRSDcmpSHpkY7Ul4r+9SE/27oAPKL4JdrTJ\nbXPan8R3+svmLL++E/70bN05VHgvPA5A9v9e31OPly2SnzpWH0BrIfoBAoGAbfiT\nZJc6AIvywqUv0jTzWc21GmA2TvYglMPJy0mQrOVRF2tegRQXOuDKyqMrokz4JcBv\ndr2B0KdorW5tQVVpoY4gCmooTGRctjRMD8w/FAWTdNLh/+P8h2m+6NmXu1Qjr7WB\n6+lGHjtgP/GJkHEyJhcKyh51IGg3R7H9lEbvdYcCgYA9MLWNeeHU0H107Y5yz4oB\nIfVBq3rhESK8LqTnMdGuBJJTiWF/wLf53aq8zhoYa6LltlqRqBRoyQUyFcL0b4zR\nEfOAy8VItLeovI+M9ZmTi32v/8IMkkoC58zGDPZz4j0TzI2vxn792oTxzMe+ep7K\n0pz8tzPNlHRUIkjVegnuVA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-z42gq@shootingdiary-orwima.iam.gserviceaccount.com",
+  "client_id": "108216219581712706843",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-z42gq%40shootingdiary-orwima.iam.gserviceaccount.com"
+}
