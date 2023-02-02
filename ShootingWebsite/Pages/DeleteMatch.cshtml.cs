@@ -1,18 +1,24 @@
 using Google.Cloud.Firestore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Newtonsoft.Json;
 
 namespace ShootingWebsite.Pages
 {
-    public class Interface : PageModel
+    public class DeleteMatch : PageModel
     {
-        public List<Dictionary<String, String>> matchList = new List<Dictionary<string, string>>();
-        public async Task<RedirectResult?> OnGet()
+        public async Task<RedirectResult?> OnGet([FromQuery] String matchId)
         {
             bool valid = false;
             DocumentSnapshot? user = null;
+            DocumentSnapshot? match = null;
+            DocumentReference? matchRef = null;
             FirestoreDb db = FirestoreDb.Create("shootingdiary-orwima");
+
+            if (String.IsNullOrWhiteSpace(matchId))
+            {
+                TempData["AlertDanger"] = "Something went wrong. Please try again later.";
+                return Redirect("/Interface");
+            }
 
             if (Request.Cookies.TryGetValue("userId", out String? userId))
             {
@@ -50,62 +56,48 @@ namespace ShootingWebsite.Pages
                 return Redirect("/Logout");
             }
 
-            String? username = null;
-            user?.TryGetValue("username", out username);
-            if (username != null)
-                TempData["username"] = username;
-
-            const string affirmationsUri = "https://www.affirmations.dev";
-            HttpClient client = new HttpClient();
-            string? affirmation;
-
-            try
-            {
-                affirmation = client.GetStringAsync(affirmationsUri).Result;
-            }
-            catch (Exception ex)
-            {
-                affirmation = null;
-            }
-
-            if (affirmation != null)
-                affirmation = JsonConvert.DeserializeObject<Dictionary<String, String>>(affirmation)?["affirmation"];
-
-            if (affirmation != null)
-                TempData["affirmation"] = affirmation;
-
             CollectionReference matchesRef = db.Collection("matches");
             IAsyncEnumerable<DocumentReference> matchRefs =
                 matchesRef.ListDocumentsAsync();
+            valid = false;
 
             await foreach (DocumentReference document in matchRefs)
             {
                 DocumentSnapshot temp = await document.GetSnapshotAsync();
-                if (temp.TryGetValue("userId", out String matchUser))
+                if (temp.Id == matchId)
                 {
-                    if (user?.Id == matchUser)
+                    if (temp.TryGetValue("userId", out String matchUser))
                     {
-                        temp.TryGetValue("Date", out String date);
-                        temp.TryGetValue("StartTime", out String startTime);
-                        temp.TryGetValue("EndTime", out String endTime);
-                        temp.TryGetValue("Location", out String location);
-                        temp.TryGetValue("Result", out int result);
-                        temp.TryGetValue("Inner10s", out int inner10s);
-                        matchList.Add(new Dictionary<string, string>
+                        if (matchUser == userId)
                         {
-                            {"Date", date},
-                            {"StartTime", startTime},
-                            {"EndTime", endTime},
-                            {"Location", location},
-                            {"Result", result.ToString()},
-                            {"Inner10s", inner10s.ToString()},
-                            {"id", temp.Id}
-                        });
+                            matchRef = document;
+                            match = temp;
+                            valid = true;
+                            break;
+                        }
                     }
                 }
             }
 
-            return null;
+            if (!valid)
+            {
+                TempData["AlertDanger"] = "Requested match does not belong to this user.";
+                return Redirect("/Interface");
+            }
+
+            TempData["matchId"] = matchId;
+            CollectionReference seriesRef = matchRef.Collection("series");
+            IAsyncEnumerable<DocumentReference> seriesRefs =
+                seriesRef.ListDocumentsAsync();
+
+            await foreach (DocumentReference document in seriesRefs)
+            {
+                await document.DeleteAsync();
+            }
+
+            await matchRef.DeleteAsync();
+            TempData["AlertSuccess"] = "Match deleted";
+            return Redirect("/Interface");
         }
     }
 }

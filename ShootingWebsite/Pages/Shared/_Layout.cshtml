@@ -19,20 +19,23 @@
         <main role="main">
             @if (TempData["AlertSuccess"] != null)
             {
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
                     @Html.Raw(@TempData["AlertSuccess"])
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             }
             @if (TempData["AlertDanger"] != null)
             {
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
                     @Html.Raw(@TempData["AlertDanger"])
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             }
             @if (TempData["AlertWarning"] != null)
             {
-                <div class="alert alert-warning" role="alert">
+                <div class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
                     @Html.Raw(@TempData["AlertWarning"])
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             }
             @RenderBody()
