@@ -20,3 +20,5 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "ShootingWebsite.dll"]
+
+ENV GOOGLE_APPLICATION_CREDENTIALS=tmp/keys/firebase.json
